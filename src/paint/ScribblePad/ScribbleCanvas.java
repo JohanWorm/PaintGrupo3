@@ -1,6 +1,4 @@
-
-
-package paint; 
+package paint.ScribblePad; 
 
 import java.awt.*;
 import java.awt.event.*;

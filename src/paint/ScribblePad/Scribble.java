@@ -1,19 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package paint;
-
+package paint.ScribblePad;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*; 
 
-public class Paint extends JFrame {
+public class Scribble extends JFrame {
 
-  public Paint() {
-    setTitle("Scribble Pad");
+  public Scribble() {
+    setTitle("Paint - Grupo 3");
     canvas = new ScribbleCanvas(); 
     canvas.setBackground(Color.white); 
     getContentPane().setLayout(new BorderLayout()); 
@@ -28,7 +22,7 @@ public class Paint extends JFrame {
   public static void main(String[] args) {
     int width = 600; 
     int height = 400; 
-    JFrame frame = new Paint();
+    JFrame frame = new Scribble();
     frame.setSize(width, height);
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     frame.setLocation(screenSize.width/2 - width/2,
