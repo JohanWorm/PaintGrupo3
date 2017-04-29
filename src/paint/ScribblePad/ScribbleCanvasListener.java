@@ -1,48 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paint.ScribblePad;
 
 import java.awt.*;
 import java.awt.event.*;
+import paint.Shape.ScribbleTool;
+import paint.Shape.Tool;
 
-/**
- *
- * @author JohanWorm
- */
-public class ScribbleCanvasListener implements MouseListener, MouseMotionListener {
+public class ScribbleCanvasListener 
+    implements MouseListener, MouseMotionListener {
 
-    public ScribbleCanvasListener(ScribbleCanvas canvas) {
+  public ScribbleCanvasListener(ScribbleCanvas canvas) {
     this.canvas = canvas; 
+    tool = new ScribbleTool(canvas, "Scribble"); 
   }
 
   public void mousePressed(MouseEvent e) {
     Point p = e.getPoint(); 
+    tool.startShape(p);    
     canvas.mouseButtonDown = true;
     canvas.x = p.x; 
-    canvas.y = p.y;       
+    canvas.y = p.y; 
   } 
-
-  public void mouseReleased(MouseEvent e) {
-    canvas.mouseButtonDown = false;       
-  }    
 
   public void mouseDragged(MouseEvent e) {
     Point p = e.getPoint(); 
     if (canvas.mouseButtonDown) {
-      canvas.getGraphics().drawLine(canvas.x, canvas.y, p.x, p.y); 
+      tool.addPointToShape(p);
       canvas.x = p.x; 
       canvas.y = p.y; 
     }       
   }
+
+  public void mouseReleased(MouseEvent e) {
+    Point p = e.getPoint(); 
+    tool.endShape(p);       
+    canvas.mouseButtonDown = false;       
+  }    
 
   public void mouseClicked(MouseEvent e) {}
   public void mouseEntered(MouseEvent e) {}  
   public void mouseExited(MouseEvent e) {}
   public void mouseMoved(MouseEvent e) {}     
 
+  protected ScribbleCanvasListener(ScribbleCanvas canvas, Tool tool) {
+    this.canvas = canvas; 
+    this.tool = tool;
+  }
+
   protected ScribbleCanvas canvas; 
-    
+  protected Tool tool; 
+
 }
+
