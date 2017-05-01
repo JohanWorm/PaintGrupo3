@@ -9,7 +9,7 @@ import java.io.*;
 import java.awt.event.*;
 import java.util.EventListener;
 import javax.swing.*; 
-import paint.Shape.Shape;
+import paint.Tool.Shape;
 
 public class ScribbleCanvas extends JPanel { 
 

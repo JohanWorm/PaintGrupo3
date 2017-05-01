@@ -31,34 +31,34 @@ public class Scribble extends JFrame {
     JMenuItem mi;
 
     // File menu 
-    menu = new JMenu("File"); 
+    menu = new JMenu("Archivo"); 
     menuBar.add(menu); 
 
-    mi = new JMenuItem("New");
+    mi = new JMenuItem("Nuevo");
     menu.add(mi);
     mi.addActionListener(new NewFileListener()); 
 
-    mi = new JMenuItem("Open");
+    mi = new JMenuItem("Abrir");
     menu.add(mi);
     mi.addActionListener(new OpenFileListener()); 
 
-    mi = new JMenuItem("Save");
+    mi = new JMenuItem("Guardar");
     menu.add(mi);
     mi.addActionListener(new SaveFileListener()); 
 
-    mi = new JMenuItem("Save As");
+    mi = new JMenuItem("Guardar como");
     menu.add(mi);
     mi.addActionListener(new SaveAsFileListener()); 
 
     menu.add(new JSeparator()); 
 
     exitAction = new ExitListener(); 
-    mi = new JMenuItem("Exit");
+    mi = new JMenuItem("Salir");
     menu.add(mi);
     mi.addActionListener(exitAction); 
 
     // option menu
-    menu = new JMenu("Option"); 
+    menu = new JMenu("Opciones"); 
     menuBar.add(menu); 
 
     mi = new JMenuItem("Color");
@@ -69,10 +69,10 @@ public class Scribble extends JFrame {
     menuBar.add(Box.createHorizontalGlue());
 
     // Help menu 
-    menu = new JMenu("Help"); 
+    menu = new JMenu("Ayuda"); 
     menuBar.add(menu); 
 
-    mi = new JMenuItem("About");
+    mi = new JMenuItem("Acerca de");
     menu.add(mi);
     mi.addActionListener(new AboutListener()); 
 
@@ -87,13 +87,13 @@ public class Scribble extends JFrame {
   protected void newFile() { 
     currentFilename = null; 
     canvas.newFile(); 
-    setTitle("Scribble Pad");
+    setTitle("Paint - Grupo 3 - Universidad Manuéla Beltrán");
   }
 
   protected void openFile(String filename) { 
     currentFilename = filename; 
     canvas.openFile(filename);
-    setTitle("Scribble Pad [" + currentFilename + "]"); 
+    setTitle("Paint - Grupo 3 [" + currentFilename + "]"); 
   }
 
   protected void saveFile() { 
@@ -101,13 +101,13 @@ public class Scribble extends JFrame {
       currentFilename = "Untitled"; 
     }
     canvas.saveFile(currentFilename); 
-    setTitle("Scribble Pad [" + currentFilename + "]");
+    setTitle("Paint - Grupo 3 [" + currentFilename + "]");
   }
 
   protected void saveFileAs(String filename) { 
     currentFilename = filename; 
     canvas.saveFile(filename); 
-    setTitle("Scribble Pad [" + currentFilename + "]");
+    setTitle("Paint - Grupo 3 [" + currentFilename + "]");
   }
 
   class NewFileListener implements ActionListener { 
@@ -121,7 +121,7 @@ public class Scribble extends JFrame {
   class OpenFileListener implements ActionListener { 
 
     public void actionPerformed(ActionEvent e) {
-      int retval = chooser.showDialog(null, "Open");
+      int retval = chooser.showDialog(null, "Abrir");
       if (retval == JFileChooser.APPROVE_OPTION) {
 	File theFile = chooser.getSelectedFile();
 	if (theFile != null) {
@@ -146,7 +146,7 @@ public class Scribble extends JFrame {
   class SaveAsFileListener implements ActionListener { 
 
     public void actionPerformed(ActionEvent e) {
-      int retval = chooser.showDialog(null, "Save As");
+      int retval = chooser.showDialog(null, "Guardar como");
       if (retval == JFileChooser.APPROVE_OPTION) {
 	File theFile = chooser.getSelectedFile();
 	if (theFile != null) {
@@ -164,8 +164,8 @@ public class Scribble extends JFrame {
     
     public void actionPerformed(ActionEvent e) {
       int result = JOptionPane.showConfirmDialog(null,
-						 "Do you want to exit Scribble Pad?", 
-						 "Exit Scribble Pad?",
+						 "¿Quiere cerrar Paint - Grupo 3?", 
+						 "Salir",
 						 JOptionPane.YES_NO_OPTION);
       if (result == JOptionPane.YES_OPTION) {
 	saveFile(); 
@@ -185,7 +185,7 @@ public class Scribble extends JFrame {
     }
 
     protected ColorDialog dialog = 
-      new ColorDialog(Scribble.this, "Choose color", canvas.getCurColor());
+      new ColorDialog(Scribble.this, "Escoja color", canvas.getCurColor());
 
   }
 
@@ -193,7 +193,7 @@ public class Scribble extends JFrame {
     
     public void actionPerformed(ActionEvent e) {
       JOptionPane.showMessageDialog(null, 
-				    "DrawingPad version 1.0\nCopyright (c) Xiaoping Jia 2002", "About", 
+				    "Paint - Grupo 3 version 1.0 - 2017", "Acerca de", 
 				    JOptionPane.INFORMATION_MESSAGE); 
     }
 
@@ -207,7 +207,7 @@ public class Scribble extends JFrame {
   protected JFileChooser chooser = new JFileChooser(".");
 
   public static void main(String[] args) {
-    JFrame frame = new Scribble("Scribble Pad");
+    JFrame frame = new Scribble("Paint - Grupo 3");
     frame.setSize(width, height);
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     frame.setLocation(screenSize.width/2 - width/2,

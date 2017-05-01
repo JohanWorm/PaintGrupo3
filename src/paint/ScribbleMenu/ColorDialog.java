@@ -20,7 +20,7 @@ public class ColorDialog extends JDialog implements ActionListener {
     topPanel.setLayout(new BorderLayout()); 
     colorPanel = new ColorPanel(20, 20, 8, 8);
     topPanel.add(colorPanel, BorderLayout.CENTER);
-    moreColorButton = new JButton("More colors"); 
+    moreColorButton = new JButton("Mas colores"); 
     moreColorButton.addActionListener(this); 
     topPanel.add(moreColorButton, BorderLayout.SOUTH);
     getContentPane().add(topPanel, BorderLayout.CENTER); 
@@ -30,7 +30,7 @@ public class ColorDialog extends JDialog implements ActionListener {
     okButton = new JButton("Ok"); 
     okButton.addActionListener(this); 
     bottomPanel.add(okButton);
-    cancelButton = new JButton("Cancel"); 
+    cancelButton = new JButton("Cancelar"); 
     cancelButton.addActionListener(this); 
     bottomPanel.add(cancelButton);
     getContentPane().add(bottomPanel, BorderLayout.SOUTH);
@@ -58,7 +58,7 @@ public class ColorDialog extends JDialog implements ActionListener {
       result = colorPanel.getColor(); 
     } else if (source == moreColorButton) { 
       Color selectedColor = chooser.showDialog(ColorDialog.this, 
-					       "Choose color", 
+					       "Escoja color", 
 					       color); 
       if (selectedColor != null) { 
 	colorPanel.setColor(selectedColor); 

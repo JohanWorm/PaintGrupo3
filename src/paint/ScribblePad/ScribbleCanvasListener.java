@@ -2,8 +2,8 @@ package paint.ScribblePad;
 
 import java.awt.*;
 import java.awt.event.*;
-import paint.Shape.ScribbleTool;
-import paint.Shape.Tool;
+import paint.Tool.ScribbleTool;
+import paint.Tool.Tool;
 
 public class ScribbleCanvasListener 
     implements MouseListener, MouseMotionListener {

@@ -1,4 +1,4 @@
-package paint.Shape;
+package paint.Tool;
 
 import java.awt.*;
 import paint.ScribblePad.ScribbleCanvas;

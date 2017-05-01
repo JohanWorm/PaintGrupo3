@@ -4,7 +4,7 @@ import java.util.*;
 import java.awt.Point;
 import java.awt.Color;
 import java.awt.Graphics;
-import paint.Shape.Shape;
+import paint.Tool.Shape;
 
 public class Stroke extends Shape { 
 
