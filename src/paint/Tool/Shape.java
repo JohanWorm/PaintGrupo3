@@ -3,24 +3,25 @@ package paint.Tool;
 import java.awt.*;
 import java.io.Serializable;
 
-public abstract class Shape implements Serializable { 
+public abstract class Shape implements Serializable {
+    
+    public abstract void draw(Graphics g);
 
-  public Shape() {} 
-  
-  public Shape(Color color) {
-    this.color = color; 
-  } 
+    protected Color color = Color.black;
 
-  public void setColor(Color color) {
-    this.color = color; 
-  } 
+    public Shape() {
+    }
 
-  public Color getColor() {
-    return color; 
-  }
+    public Shape(Color color) {
+        this.color = color;
+    }
 
-  public abstract void draw(Graphics g); 
+    public void setColor(Color color) {
+        this.color = color;
+    }
 
-  protected Color color = Color.black; 
+    public Color getColor() {
+        return color;
+    }
 
 }
